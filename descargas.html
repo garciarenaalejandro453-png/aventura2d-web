@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aventura 2D — Descargar</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --tierra: #3b2a1a;
+    --verde: #2f6b3a;
+    --verde-claro: #4c9a5a;
+    --paja: #e8d9b0;
+    --crema: #fdf6e3;
+    --dorado: #d8a94a;
+  }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background-color: #1e3d1c;
+    background-image: radial-gradient(circle at 50% 0%, #4a7c3f 0%, #2f5a2a 45%, #1e3d1c 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: var(--crema);
+    min-height: 100vh;
+    padding: 22px 14px 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -webkit-text-size-adjust: 100%;
+  }
+  header { text-align: center; max-width: 680px; margin-bottom: 18px; }
+  h1 {
+    font-size: clamp(25px, 6.5vw, 38px);
+    letter-spacing: 1px;
+    text-shadow: 0 3px 0 rgba(0,0,0,.45);
+    margin-bottom: 6px;
+  }
+  .sub { opacity: .88; font-size: 14.5px; line-height: 1.45; }
+
+  .aviso {
+    width: 100%; max-width: 680px;
+    background: rgba(0,0,0,.28);
+    border: 2px dashed rgba(232,217,176,.45);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin: 14px 0 16px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    text-align: center;
+    display: none;
+  }
+  .aviso b { color: var(--dorado); }
+
+  .grid { width: 100%; max-width: 680px; display: grid; gap: 12px; }
+  a.card {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--crema); color: var(--tierra);
+    border-radius: 14px; padding: 14px 16px;
+    text-decoration: none;
+    border: 3px solid #b9995f;
+    box-shadow: 0 6px 0 rgba(0,0,0,.28);
+    transition: transform .08s ease, box-shadow .08s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  a.card:active { transform: translateY(4px); box-shadow: 0 2px 0 rgba(0,0,0,.28); }
+  a.card.destacado { border-color: var(--dorado); box-shadow: 0 6px 0 #8a6520, 0 0 0 3px rgba(216,169,74,.35); }
+  .ico { font-size: 30px; line-height: 1; width: 42px; text-align: center; }
+  .txt { flex: 1; min-width: 0; }
+  .txt b { display: block; font-size: 17px; margin-bottom: 3px; }
+  .txt span { font-size: 12.5px; color: #6b5638; line-height: 1.35; display: block; }
+  .tag {
+    font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+    background: var(--verde); color: #fff; border-radius: 999px;
+    padding: 5px 9px; white-space: nowrap; letter-spacing: .5px;
+  }
+  .tag.alt { background: #b4772a; }
+
+  .nota {
+    max-width: 680px; margin-top: 24px; font-size: 13px; line-height: 1.6;
+    opacity: .95; width: 100%;
+  }
+  .nota h2 {
+    font-size: 14px; margin: 18px 0 8px; letter-spacing: .6px;
+    text-transform: uppercase; color: var(--dorado);
+  }
+  .paso {
+    background: rgba(0,0,0,.22);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .paso b { color: #fff; }
+  .nota p { margin-bottom: 8px; }
+  .nota code {
+    background: rgba(0,0,0,.3); padding: 1px 5px; border-radius: 4px;
+    font-size: 12px; word-break: break-all;
+  }
+  .nota ul { margin: 0 0 8px 18px; }
+  .nota li { margin-bottom: 5px; }
+  footer { margin-top: 26px; font-size: 11.5px; opacity: .55; text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <h1>🚜 AVENTURA 2D</h1>
+  <p class="sub">La granja de La Tranquera · elegí cómo jugar</p>
+</header>
+
+<div class="aviso" id="aviso"></div>
+
+<div class="grid">
+  <a class="card" id="c-online" href="./index.html">
+    <div class="ico">🌐</div>
+    <div class="txt"><b>Jugar ahora, sin instalar</b><span>Funciona en iPhone, iPad, Android y PC desde el navegador</span></div>
+    <div class="tag">ONLINE</div>
+  </a>
+
+  <a class="card" id="c-apk" href="https://github.com/garciarenaalejandro453-png/aventura2d-web/releases/download/v1.0/Aventura2D-Android.apk?v=9627b4c">
+    <div class="ico">🤖</div>
+    <div class="txt"><b>Descargar para Android</b><span>APK actualizado · yerba mate, parcelas nuevas y sector del mate</span></div>
+    <div class="tag alt">ANDROID</div>
+  </a>
+
+  <a class="card" id="c-pc" href="https://github.com/garciarenaalejandro453-png/aventura2d-web/releases/download/v1.0/Aventura2D-PC-Windows.zip">
+    <div class="ico">💻</div>
+    <div class="txt"><b>Descargar para Windows</b><span>ZIP 38 MB · descomprimir y ejecutar Aventura2D.exe</span></div>
+    <div class="tag alt">PC</div>
+  </a>
+
+  <a class="card" id="c-todo" href="https://github.com/garciarenaalejandro453-png/aventura2d-web/releases/tag/v1.0">
+    <div class="ico">📦</div>
+    <div class="txt"><b>Otra copia (GitHub)</b><span>Si la descarga de arriba falla, probá desde acá</span></div>
+    <div class="tag">ESPEJO</div>
+  </a>
+</div>
+
+<div class="nota">
+  <h2>Cómo instalar en Android</h2>
+  <div class="paso"><b>1.</b> Tocá <b>Descargar para Android</b> y esperá a que termine (son 29 MB, si dice 0 MB o queda a medias, volvé a tocarlo).</div>
+  <div class="paso"><b>2.</b> Abrí el archivo desde la barra de descargas o desde <b>Archivos → Descargas</b>.</div>
+  <div class="paso"><b>3.</b> Si aparece <b>“Por seguridad, tu teléfono no puede instalar apps desconocidas”</b>, tocá <b>Configuración</b> y activá <b>Permitir desde esta fuente</b> (Chrome o Archivos). Después volvé y tocá <b>Instalar</b>.</div>
+  <div class="paso"><b>4.</b> Si Google Play Protect dice <b>“Se bloqueó la instalación”</b>, elegí <b>Más detalles → Instalar de todos modos</b>.</div>
+  <div class="paso"><b>5.</b> Si dice <b>“Aplicación no instalada”</b>, casi siempre es porque ya había una versión anterior con otra firma: desinstalá la anterior y volvé a probar.</div>
+
+  <h2>Cómo abrir en Windows</h2>
+  <div class="paso"><b>1.</b> Descargá el ZIP (38 MB) y <b>descomprimilo entero</b>: clic derecho → <b>Extraer todo…</b>.</div>
+  <div class="paso"><b>2.</b> Dentro de la carpeta tienen que estar <code>Aventura2D.exe</code> y la DLL de la radio. <b>Dejalos juntos</b>: si movés solo el .exe, el juego no abre.</div>
+  <div class="paso"><b>3.</b> Doble clic en <code>Aventura2D.exe</code>. Si Windows muestra el cartel azul, <b>Más información → Ejecutar de todas formas</b>.</div>
+  <div class="paso"><b>4.</b> No hace falta abrirlo desde adentro del ZIP: si lo ejecutás sin extraer, a veces falla.</div>
+
+  <h2>En iPhone / iPad</h2>
+  <p>No hay que descargar nada: tocá <b>Jugar ahora</b> y se abre en Safari. La app nativa se instala aparte y necesita renovarse cada 7 días.</p>
+
+  <h2>Controles</h2>
+  <p><code>A</code>/<code>D</code> o flechas para moverte, <code>E</code> para interactuar, <code>Espacio</code> para saltar. En celular aparecen controles táctiles en pantalla.</p>
+
+  <h2>Si algo no anda</h2>
+  <div class="paso" style="border:2px solid rgba(216,169,74,.5)">
+    <b>Comprobar si el archivo se bajó bien</b>
+    <p style="margin:8px 0 6px">Elegí el archivo que descargaste y te digo si está completo:</p>
+    <input type="file" id="archivo" style="width:100%;font-size:12px;color:#e8d9b0">
+    <div id="resultado" style="margin-top:8px;font-size:12.5px;line-height:1.5"></div>
+  </div>
+  <ul>
+    <li><b>La descarga se corta:</b> probá de nuevo con buena señal, o usá el botón <b>Otra copia (GitHub)</b>.</li>
+    <li><b>El ZIP “no es válido”:</b> se bajó incompleto. Tiene que pesar <b>38 MB</b>; si pesa menos, borralo y descargalo otra vez.</li>
+    <li><b>El APK “no se puede analizar”:</b> también es descarga incompleta. Tiene que pesar <b>29 MB</b>.</li>
+    <li><b>Android muy viejo (32 bits):</b> esta versión es de 64 bits; en esos teléfonos usá <b>Jugar ahora</b>.</li>
+  </ul>
+</div>
+
+<footer>Aventura 2D · hecho con Godot</footer>
+
+<script>
+(function () {
+  var ua = navigator.userAgent || '';
+  var esIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var esAndroid = /Android/i.test(ua);
+  var esWindows = /Windows/i.test(ua);
+  var aviso = document.getElementById('aviso');
+
+  function marcar(id) {
+    var el = document.getElementById(id);
+    if (el) { el.classList.add('destacado'); }
+  }
+
+  if (esIOS) {
+    marcar('c-online');
+    aviso.innerHTML = 'Estás en <b>iPhone / iPad</b>: lo más fácil es <b>Jugar ahora</b>. ' +
+      'Los botones de Android y Windows son para esos equipos.';
+    aviso.style.display = 'block';
+  } else if (esAndroid) {
+    marcar('c-apk');
+    aviso.innerHTML = 'Estás en <b>Android</b>: bajá el <b>APK</b>. Si el teléfono avisa que es de ' +
+      '“origen desconocido”, permitilo y volvé a tocar Instalar.';
+    aviso.style.display = 'block';
+  } else if (esWindows) {
+    marcar('c-pc');
+    aviso.innerHTML = 'Estás en <b>Windows</b>: bajá el <b>ZIP</b> y descomprimilo entero antes de abrir el .exe.';
+    aviso.style.display = 'block';
+  }
+})();
+
+// --- Comprobar archivo descargado ---
+(function () {
+  var conocidos = [
+     { nombre: 'Aventura2D-Android.apk', bytes: 30271822, sha: '8cdfaa506f72003d82c82239ffcdbfb4aa9f3017a038eb9b3d07ea28575b7c86' },
+    { nombre: 'Aventura2D-PC-Windows.zip', bytes: 39317632, sha: 'ad7509a957677edfe4a904df54afd6e1bbe008069e0681e90065a8f0abbf1f66' }
+  ];
+  var input = document.getElementById('archivo');
+  var out = document.getElementById('resultado');
+  if (!input || !out) { return; }
+
+  function hex(buf) {
+    var b = new Uint8Array(buf), s = '';
+    for (var i = 0; i < b.length; i++) { s += ('0' + b[i].toString(16)).slice(-2); }
+    return s;
+  }
+
+  input.addEventListener('change', function () {
+    var f = input.files && input.files[0];
+    if (!f) { return; }
+    var esApk = /\.apk$/i.test(f.name);
+    var ref = esApk ? conocidos[0] : conocidos[1];
+    var cab = '<div style="margin-bottom:4px"><b>' + f.name + '</b></div>' +
+      '<div>Tamaño: ' + (f.size / 1048576).toFixed(1) + ' MB (esperado ' + (ref.bytes / 1048576).toFixed(1) + ' MB)</div>';
+    if (f.size !== ref.bytes) {
+      out.innerHTML = cab + '<div style="color:#ffb4a2;margin-top:4px"><b>✘ La descarga está incompleta.</b><br>' +
+        'Faltan ' + ((ref.bytes - f.size) / 1048576).toFixed(1) + ' MB. Borralo y volvé a descargarlo, ' +
+        'dejando la pantalla encendida hasta que termine.</div>';
+      return;
+    }
+    out.innerHTML = cab + '<div>Comprobando firma…</div>';
+    var lector = new FileReader();
+    lector.onload = function () {
+      var data = lector.result;
+      if (!(window.crypto && crypto.subtle)) {
+        out.innerHTML = 'Tamaño: <b>' + (f.size / 1048576).toFixed(1) + ' MB</b> (esperado ' +
+          (ref.bytes / 1048576).toFixed(1) + ' MB). Abrí esta página por https para verificar la firma.';
+        return;
+      }
+      crypto.subtle.digest('SHA-256', data).then(function (h) {
+        var sha = hex(h);
+        var ok = (sha === ref.sha);
+        if (ok) {
+          out.innerHTML = cab + '<div style="color:#9fe08f;margin-top:4px"><b>✔ El archivo está completo y es el oficial.</b><br>' +
+            'Si no se instala, el problema no es la descarga: revisá los pasos de arriba (versión anterior instalada, ' +
+            'permiso de origen desconocido o Windows bloqueando el .exe).</div>';
+        } else {
+          out.innerHTML = cab + '<div style="color:#ffb4a2;margin-top:4px"><b>✘ La descarga está incompleta o dañada.</b><br>' +
+            'Borralo y descargalo otra vez. Suele pasar cuando la conexión es lenta: dejá la pantalla encendida ' +
+            'hasta que termine.</div>';
+        }
+      }).catch(function () {
+        out.innerHTML = 'No pude calcular la firma, pero el tamaño es <b>' + (f.size / 1048576).toFixed(1) + ' MB</b>.';
+      });
+    };
+    lector.readAsArrayBuffer(f);
+  });
+})();
+</script>
+</body>
+</html>
